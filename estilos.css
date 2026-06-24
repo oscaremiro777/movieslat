@@ -1,0 +1,84 @@
+*,::after,::before {
+    margin: 0;
+    box-sizing: border-box;
+   
+}
+body {
+    background-color: #f0f0f0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #333;
+}
+
+.nav{
+    background-color: #6727dd;
+    width: 100%;
+}
+.nav_container{
+    background-color: #6727dd;
+    width: min(90% , 1200px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+
+    --icon-toggle-menu: url(assets/menu.svg);
+    --transform-menu-show: translateX(-100%);
+
+}
+.nav_container:has(.nav_input:checked) {
+    /* background-color: rgb(91, 221, 39); */
+    --icon-toggle-menu: url(assets/close.svg);
+    --transform-menu-show: translateX(0);
+}
+.nav_figure, .nav_toggle{/**/
+    z-index: 10;
+
+}
+.nav_toggle{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    /* background:url(assets/menu.svg); */
+    background-image: var(--icon-toggle-menu);
+
+    background-size: cover;
+    transition: background-image 0.3s;
+}
+.nav_input{
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.nav_list{
+    transform:var(--transform-menu-show);
+    list-style: none;
+    position: fixed;/**/
+    inset: 0; /**/
+    display: grid; /* crea sistema de grilla*/
+    place-content: center;/*remplaza justify content y align items*/
+    gap: 1.5rem;/*separa los items entre si*/
+    padding: 1.5rem 5%;/**/
+    background-color: #6727dd;/**/
+
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav_link{
+    color: white;
+    text-decoration: none;
+}
+/* @media (min-width: 768px) {
+    .nav_toggle, .nav_input{
+        display: none;
+    }
+    .nav_list{
+        position: static;
+        transform: translateX(0);
+        display: flex;
+        gap: 2rem;
+        background-color: transparent;
+    }
+} */
+ 
